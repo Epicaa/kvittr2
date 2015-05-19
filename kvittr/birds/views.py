@@ -17,7 +17,7 @@ def user_login(request):
             # render login again, but display error message
             context['login_failed'] = True
     # request.method == 'GET':
-    return render(request, 'useraccounts/login.html', context)
+    return render(request, 'birds/login.html', context)
 
 def user_logout(request):
     logout(request)
@@ -34,4 +34,4 @@ def user_register(request):
         user.set_password(request.POST.get('password'))
         user.save()
         context['user_saved_successfully'] = True
-    return render(request, 'useraccounts/register.html', context)
+    return render(request, 'birds/register.html', context)
