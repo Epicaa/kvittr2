@@ -10,7 +10,7 @@ class Student(models.Model):
     def __unicode__(self):
         return u'%s (%s)' % (self.name, self.email)
 
-class StudentNote(models.Model):
+class Pip(models.Model):
     student = models.ForeignKey(Student, related_name='notes')
     note = models.TextField()
     points = models.PositiveIntegerField(default=0)

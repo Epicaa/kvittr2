@@ -4,8 +4,8 @@ from django.http import JsonResponse
 from django.utils import timezone
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
-from students.models import Student
-from students.models import StudentNote
+from pips.models import Student
+from pips.models import StudentNote
 
 
 # Create your views here.
