@@ -5,5 +5,5 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', include('theme.urls')),
     url(r'^birds/', include('birds.urls')),
-    url(r'^pips/', include('pips.urls')),
+    url(r'^pips_messages/', include('pips_messages.urls')),
 ]

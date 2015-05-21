@@ -1,8 +1,8 @@
 {% extends 'birds/base.html' %}
 {% block container %} 
-<h1>Register new User</h1>
+<h1>Register new Bird</h1>
 {% if user_saved_successfully %}
-    <div class="alert alert-success">User successfully created</div>
+    <div class="alert alert-success">Bird successfully born</div>
 {% endif %} 
 <form method="POST" action="{% url 'user_register' %}">{% csrf_token %}
       <div class="form-group">
@@ -14,7 +14,7 @@
         <input type="text" class="form-control" name="lastname" id="inputLastName" placeholder="Enter Last Name">
       </div>
         <div class="form-group">
-            <label for="inputUsername">Username</label>
+            <label for="inputUsername">Birdname</label>
             <input type="text" name="username" id="inputUsername" class="form-control" placeholder="Enter username">
         </div>
         <div class="form-group">
@@ -25,6 +25,9 @@
             <label for="inputPassword">Password</label>
             <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password">
         </div>
-  <button type="submit" class="btn btn-default">Submit</button>
+  <button type="submit" class="btn btn-default">Learn to fly, babybird!</button> 
+  <button class="btn btn-default">
+    <a href="{% url 'user_login' %}">Log in</a>
+  </button>
 </form>
 {% endblock %}

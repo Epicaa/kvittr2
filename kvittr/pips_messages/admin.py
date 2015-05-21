@@ -1,5 +1,5 @@
 from django.contrib import admin
 
-from pips.models import Pip
+from pips_messages.models import Pip
 
 admin.site.register(Pip)

@@ -2,8 +2,9 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.shortcuts import render
 from django.shortcuts import redirect
+from django.contrib.auth.decorators import login_required
 
-def user_login(request):
+def bird_login(request):
     context = {}
     if request.method == 'POST':
         username = request.POST['username']
@@ -19,11 +20,11 @@ def user_login(request):
     # request.method == 'GET':
     return render(request, 'birds/login.html', context)
 
-def user_logout(request):
+def bird_logout(request):
     logout(request)
     return redirect('frontpage')
 
-def user_register(request):
+def bird_register(request):
     context = {}
     if request.method == "POST":
         user = User()
@@ -35,3 +36,16 @@ def user_register(request):
         user.save()
         context['user_saved_successfully'] = True
     return render(request, 'birds/register.html', context)
+
+@login_required
+def bird_profile(request):
+    context = {}
+    if request.method == "POST":
+        user = request.user
+        user.first_name = request.POST.get('firstname')
+        user.last_name = request.POST.get('lastname')
+        user.email = request.POST.get('email')
+        user.save()
+        context['user_saved_successfully'] = True
+    return render(request, 'birds/profile.html', context)
+
