@@ -38,7 +38,7 @@ def bird_register(request):
             user.set_password(request.POST.get('password')
             user.save()
             context['user_saved_successfully'] = True
-        return render(request, 'birds/register.html', context)
+    return render(request, 'birds/register.html', context)
 
 @login_required
 def bird_profile(request):
